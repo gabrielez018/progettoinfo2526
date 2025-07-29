@@ -48,10 +48,10 @@ Material:
     - _lightingCutOffDark: 0.5
     - _lightingCutOffLight: 0.77
     - _shadowBrightness: 0.1
-    - _shadowBrightnessDark: 0.26
+    - _shadowBrightnessDark: 0.42
     - _shadowBrightnessLight: 0
     m_Colors:
-    - _color: {r: 0.8396226, g: 0.82378066, b: 0.82378066, a: 1}
+    - _color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5402998199888881724
