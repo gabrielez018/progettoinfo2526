@@ -333,10 +333,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeca19c17ef17854c8ebb5b0a8d1db66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoBranchWood: {fileID: 8607964597180086101, guid: f3a3e10298653b14384aea5cc4729ab4, type: 3}
-  OneBranchWood: {fileID: 8636715066170240347, guid: 4bdd0b0fea07ce14c8bb00c0e8c48588, type: 3}
-  TwoBranchWood: {fileID: 0}
-  ThreeBranchWood: {fileID: 4843939361749919252, guid: b86c2d2dbcfd66e40a790f66cb8095ba, type: 3}
+  Logs:
+  - {fileID: 8607964597180086101, guid: f3a3e10298653b14384aea5cc4729ab4, type: 3}
+  - {fileID: 8636715066170240347, guid: 4bdd0b0fea07ce14c8bb00c0e8c48588, type: 3}
+  - {fileID: 4843939361749919252, guid: b86c2d2dbcfd66e40a790f66cb8095ba, type: 3}
+  - {fileID: 8469319265804520338, guid: 15ee86f337c2b124abf368e3b55e35b1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
