@@ -1,3 +1,5 @@
+
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TreesSpawnerManager : MonoBehaviour
@@ -5,6 +7,8 @@ public class TreesSpawnerManager : MonoBehaviour
     [SerializeField] GameObject[] Logs;
     [SerializeField] float LogHeight;
     [SerializeField] int LogCount;
+    private float NextLogToSpawnYPosition;
+    private List<GameObject> CurrentLogs = new List<GameObject>();
 
     void Start()
     {
@@ -19,7 +23,7 @@ public class TreesSpawnerManager : MonoBehaviour
     void GenerateLogAtStart()
     {
         //make the initial y of the log spawner to 0 to make on the floor
-        float NextLogToSpawnPosition = 0;
+        NextLogToSpawnYPosition = 0;
         for (int i = 0; i < LogCount; i++)
         {
             SpawnNewLog();
@@ -29,6 +33,9 @@ public class TreesSpawnerManager : MonoBehaviour
     void SpawnNewLog()
     {
         GameObject RandomLogPrefab = Logs[Random.Range(0, Logs.Length)];
-        
+        GameObject NewLog = Instantiate(RandomLogPrefab, transform.position + Vector3.up * NextLogToSpawnYPosition, Quaternion.identity);
+        NewLog.transform.SetParent(this.transform);
+        CurrentLogs.Add(NewLog);
+        NextLogToSpawnYPosition = NextLogToSpawnYPosition + LogHeight;
     }
 }
