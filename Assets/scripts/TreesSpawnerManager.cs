@@ -12,14 +12,10 @@ public class TreesSpawnerManager : MonoBehaviour
 
     void Start()
     {
-
+        GenerateLogAtStart();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
     void GenerateLogAtStart()
     {
         //make the initial y of the log spawner to 0 to make on the floor
