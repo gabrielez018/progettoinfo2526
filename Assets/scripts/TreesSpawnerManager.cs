@@ -37,7 +37,7 @@ public class TreesSpawnerManager : MonoBehaviour
         currentLogs.Add(NewLog);
         nextLogToSpawnYposition = nextLogToSpawnYposition + logHeight;
     }
-    void OnLogCut(GameObject cuttedLog)
+    public void OnLogCut(GameObject cuttedLog)
     {
         if(currentLogs.Contains(cuttedLog)){
             currentLogs.Remove(cuttedLog);
