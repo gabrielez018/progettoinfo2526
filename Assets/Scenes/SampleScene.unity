@@ -338,7 +338,7 @@ MonoBehaviour:
   - {fileID: 15212490609790563, guid: 4bdd0b0fea07ce14c8bb00c0e8c48588, type: 3}
   - {fileID: 4705132406171026422, guid: b86c2d2dbcfd66e40a790f66cb8095ba, type: 3}
   - {fileID: 3617290858992432656, guid: 15ee86f337c2b124abf368e3b55e35b1, type: 3}
-  LogHeight: 3
+  LogHeight: 2
   LogCount: 10
 --- !u!1 &1613343549
 GameObject:
