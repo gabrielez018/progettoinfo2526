@@ -26,8 +26,6 @@ public class TreesSpawnerManager : MonoBehaviour
         }
 
     }
-
-
     void SpawnNewLog()
     {
         GameObject RandomLogPrefab = logs[Random.Range(0, logs.Length)];
@@ -37,15 +35,27 @@ public class TreesSpawnerManager : MonoBehaviour
         nextLogToSpawnYposition += logHeight;
     }
     public void OnLogCut(GameObject cuttedLog)
+{
+    if (currentLogs.Contains(cuttedLog))
     {
-        foreach (GameObject log in currentLogs)
-        {
-            log.transform.position -= Vector3.up * logHeight;
-        }
-        //cuttedLog.transform.position += Vector3.up * logHeight * logCount;
-
+        currentLogs.Remove(cuttedLog);
     }
-    private Quaternion getRandomRotation() {
+
+    foreach (GameObject log in currentLogs)
+    {
+        log.transform.position -= Vector3.up * logHeight;
+    }
+
+    
+    nextLogToSpawnYposition -= logHeight;
+
+
+    SpawnNewLog();
+
+    Destroy(cuttedLog);
+}
+    private Quaternion getRandomRotation()
+    {
         return Quaternion.Euler(0, Random.Range(0, 4) * 90, 0);
     }
 }

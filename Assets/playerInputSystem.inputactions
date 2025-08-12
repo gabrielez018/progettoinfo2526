@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "name": "playerInputSystem",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "0c419b41-f39f-4de5-824f-c5e77f56f3d3",
+            "actions": [
+                {
+                    "name": "moveRight",
+                    "type": "Button",
+                    "id": "8c57d1ca-d862-46f5-afbb-8fa5d5689203",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "moveLeft",
+                    "type": "Button",
+                    "id": "9b62d157-e409-42d2-bf3f-d290d30ba6eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "cut",
+                    "type": "Button",
+                    "id": "787e1b1a-795a-4f4c-8a82-5d1224ace417",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "01865517-ccba-4ef5-8f43-8f0d806818a6",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "moveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f887f76-af7f-4f83-8d0d-b6d84a171ab7",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "moveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fabe75c2-e077-455e-a4d0-2212c497c724",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "cut",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
