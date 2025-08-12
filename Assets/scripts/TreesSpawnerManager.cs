@@ -1,8 +1,6 @@
 
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class TreesSpawnerManager : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class TreesSpawnerManager : MonoBehaviour
     [SerializeField] float logHeight;
     [SerializeField] int logCount;
     private float nextLogToSpawnYposition;
-    private List<GameObject> currentLogs = new List<GameObject>();
+    public List<GameObject> currentLogs = new List<GameObject>();
 
     void Start()
     {
@@ -28,24 +26,26 @@ public class TreesSpawnerManager : MonoBehaviour
         }
 
     }
+
+
     void SpawnNewLog()
     {
         GameObject RandomLogPrefab = logs[Random.Range(0, logs.Length)];
-        Quaternion RandomYRotation = Quaternion.Euler(0,Random.Range(0,4)*90,0);
-        GameObject NewLog = Instantiate(RandomLogPrefab, transform.position + Vector3.up * nextLogToSpawnYposition, RandomYRotation);
-        NewLog.transform.SetParent(this.transform);
+        GameObject NewLog = Instantiate(RandomLogPrefab, transform.position + Vector3.up * nextLogToSpawnYposition, getRandomRotation());
         currentLogs.Add(NewLog);
-        nextLogToSpawnYposition = nextLogToSpawnYposition + logHeight;
+        NewLog.transform.SetParent(this.transform);
+        nextLogToSpawnYposition += logHeight;
     }
     public void OnLogCut(GameObject cuttedLog)
     {
-        if(currentLogs.Contains(cuttedLog)){
-            currentLogs.Remove(cuttedLog);
-        }
-        Destroy(cuttedLog);
         foreach (GameObject log in currentLogs)
         {
             log.transform.position -= Vector3.up * logHeight;
         }
+        //cuttedLog.transform.position += Vector3.up * logHeight * logCount;
+
+    }
+    private Quaternion getRandomRotation() {
+        return Quaternion.Euler(0, Random.Range(0, 4) * 90, 0);
     }
 }

@@ -3,19 +3,12 @@ using UnityEngine;
 public class SingleLogManager : MonoBehaviour
 {
     [SerializeField] TreesSpawnerManager treesSpawnerManager;
-    void OTriggerEnter(Collider other)
+
+    void Update()
     {
-        if (other.CompareTag("Player"))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            if (treesSpawnerManager != null)
-            {
-                treesSpawnerManager.OnLogCut(this.gameObject);
-                Collider logCollider = GetComponent<Collider>();
-                if (logCollider != null)
-                {
-                    logCollider.enabled = false;
-                }
-            }
+            treesSpawnerManager.OnLogCut(this.gameObject);
         }
     }
 }
