@@ -13,7 +13,7 @@ public class PlayerTerrainManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void moveLeft()
+    public void moveLeft()
     {
         if (currentPlayerPlatform == 3)
         {
@@ -25,7 +25,7 @@ public class PlayerTerrainManager : MonoBehaviour
         }
         teleport(currentPlayerPlatform);
     }
-    void moveRight()
+    public void moveRight()
     {
         if (currentPlayerPlatform == 0)
         {

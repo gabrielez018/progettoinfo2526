@@ -93,7 +93,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             ""id"": ""0c419b41-f39f-4de5-824f-c5e77f56f3d3"",
             ""actions"": [
                 {
-                    ""name"": ""moveRight"",
+                    ""name"": ""moveLeft"",
                     ""type"": ""Button"",
                     ""id"": ""8c57d1ca-d862-46f5-afbb-8fa5d5689203"",
                     ""expectedControlType"": """",
@@ -102,7 +102,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""moveLeft"",
+                    ""name"": ""moveRight"",
                     ""type"": ""Button"",
                     ""id"": ""9b62d157-e409-42d2-bf3f-d290d30ba6eb"",
                     ""expectedControlType"": """",
@@ -128,7 +128,18 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""moveRight"",
+                    ""action"": ""moveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef323004-d63f-4a2b-95e9-ce470a351438"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""moveLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -139,7 +150,18 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""moveLeft"",
+                    ""action"": ""moveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""436ccf3e-4b06-458a-b4d9-edcd9fdf6409"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""moveRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -147,6 +169,17 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""fabe75c2-e077-455e-a4d0-2212c497c724"",
                     ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""cut"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4911737a-16a3-4999-b27f-1d818027048f"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -161,8 +194,8 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_moveRight = m_Player.FindAction("moveRight", throwIfNotFound: true);
         m_Player_moveLeft = m_Player.FindAction("moveLeft", throwIfNotFound: true);
+        m_Player_moveRight = m_Player.FindAction("moveRight", throwIfNotFound: true);
         m_Player_cut = m_Player.FindAction("cut", throwIfNotFound: true);
     }
 
@@ -244,8 +277,8 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_moveRight;
     private readonly InputAction m_Player_moveLeft;
+    private readonly InputAction m_Player_moveRight;
     private readonly InputAction m_Player_cut;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
@@ -259,13 +292,13 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@PlayerInputSystem wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Player/moveRight".
-        /// </summary>
-        public InputAction @moveRight => m_Wrapper.m_Player_moveRight;
-        /// <summary>
         /// Provides access to the underlying input action "Player/moveLeft".
         /// </summary>
         public InputAction @moveLeft => m_Wrapper.m_Player_moveLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/moveRight".
+        /// </summary>
+        public InputAction @moveRight => m_Wrapper.m_Player_moveRight;
         /// <summary>
         /// Provides access to the underlying input action "Player/cut".
         /// </summary>
@@ -296,12 +329,12 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @moveRight.started += instance.OnMoveRight;
-            @moveRight.performed += instance.OnMoveRight;
-            @moveRight.canceled += instance.OnMoveRight;
             @moveLeft.started += instance.OnMoveLeft;
             @moveLeft.performed += instance.OnMoveLeft;
             @moveLeft.canceled += instance.OnMoveLeft;
+            @moveRight.started += instance.OnMoveRight;
+            @moveRight.performed += instance.OnMoveRight;
+            @moveRight.canceled += instance.OnMoveRight;
             @cut.started += instance.OnCut;
             @cut.performed += instance.OnCut;
             @cut.canceled += instance.OnCut;
@@ -316,12 +349,12 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="PlayerActions" />
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @moveRight.started -= instance.OnMoveRight;
-            @moveRight.performed -= instance.OnMoveRight;
-            @moveRight.canceled -= instance.OnMoveRight;
             @moveLeft.started -= instance.OnMoveLeft;
             @moveLeft.performed -= instance.OnMoveLeft;
             @moveLeft.canceled -= instance.OnMoveLeft;
+            @moveRight.started -= instance.OnMoveRight;
+            @moveRight.performed -= instance.OnMoveRight;
+            @moveRight.canceled -= instance.OnMoveRight;
             @cut.started -= instance.OnCut;
             @cut.performed -= instance.OnCut;
             @cut.canceled -= instance.OnCut;
@@ -366,19 +399,19 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "moveRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMoveRight(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "moveLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMoveLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "moveRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveRight(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "cut" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
