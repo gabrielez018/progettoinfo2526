@@ -28,8 +28,16 @@ public class TreesSpawnerManager : MonoBehaviour
     }
     void SpawnNewLog()
     {
-        GameObject RandomLogPrefab = logs[Random.Range(0, logs.Length)];
-        GameObject NewLog = Instantiate(RandomLogPrefab, transform.position + Vector3.up * nextLogToSpawnYposition, getRandomRotation());
+        GameObject randomLogPrefab = null;
+        if (nextLogToSpawnYposition == 0)
+        {
+            randomLogPrefab =  logs[0];
+        }
+        else
+        {
+            randomLogPrefab = logs[Random.Range(0, logs.Length)];
+        } 
+        GameObject NewLog = Instantiate(randomLogPrefab, transform.position + Vector3.up * nextLogToSpawnYposition, getRandomRotation());
         currentLogs.Add(NewLog);
         NewLog.transform.SetParent(this.transform);
         nextLogToSpawnYposition += logHeight;

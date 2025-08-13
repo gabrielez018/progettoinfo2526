@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6310819492087786862
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MI_woods
-  m_Shader: {fileID: -6465566751694194690, guid: f2fcd43e9d9f1b74687740c7c768f5dc, type: 3}
+  m_Name: MI_Platform
+  m_Shader: {fileID: -6465566751694194690, guid: c9a0b4a682be761409b33df90114b29d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -24,8 +37,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTexture:
+        m_Texture: {fileID: 2800000, guid: e57ce6aaf28f629409fcdfebe4049859, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseColor:
-        m_Texture: {fileID: 2800000, guid: b90e844e52b7d28488fe3f30df6ee262, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5113c9bf577b32d45877d2749d777272, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -44,33 +61,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _lightingCutOff: 0.3
     - _lightingCutOffDark: 0.5
     - _lightingCutOffLight: 0.77
-    - _noisePower: 2.5
-    - _noiseScale: 50
-    - _noiseStep: 0.53
-    - _noisespeed: 0.01
-    - _shadowBrightness: 0.1
     - _shadowBrightnessDark: 0.42
     - _shadowBrightnessLight: 0
     m_Colors:
-    - _EmissionColor: {r: 702.11554, g: 766.99615, b: 0, a: 1}
-    - _color: {r: 1, g: 1, b: 1, a: 1}
-    - _noiseScale: {r: 50, g: 42.5, b: 0, a: 0}
-    - _noiseTiling: {r: 16.71, g: 1, b: 0, a: 0}
+    - _color: {r: 0.9811321, g: 0.8469206, b: 0.8469206, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &5402998199888881724
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 9
