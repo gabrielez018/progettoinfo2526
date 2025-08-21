@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private TreesSpawnerManager treesSpawnerManager;
-    private GameObject bottomLog;
     private PlayerInputSystem playerInputSystem;
     private InputAction moveRight;
     private InputAction moveLeft;
