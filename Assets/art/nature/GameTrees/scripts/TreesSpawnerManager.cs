@@ -43,25 +43,20 @@ public class TreesSpawnerManager : MonoBehaviour
         nextLogToSpawnYposition += logHeight;
     }
     public void OnLogCut(GameObject cuttedLog)
-{
-    if (currentLogs.Contains(cuttedLog))
     {
-        currentLogs.Remove(cuttedLog);
+        if (currentLogs.Contains(cuttedLog))
+        {
+            currentLogs.Remove(cuttedLog);
+        }
+        GameManager.Instance.addScore();
+        foreach (GameObject log in currentLogs)
+        {
+            log.transform.position -= Vector3.up * logHeight;
+        }
+        nextLogToSpawnYposition -= logHeight;
+        SpawnNewLog();
+        Destroy(cuttedLog);
     }
-
-    foreach (GameObject log in currentLogs)
-    {
-        log.transform.position -= Vector3.up * logHeight;
-    }
-
-    
-    nextLogToSpawnYposition -= logHeight;
-
-
-    SpawnNewLog();
-
-    Destroy(cuttedLog);
-}
     private Quaternion getRandomRotation()
     {
         return Quaternion.Euler(0, Random.Range(0, 4) * 90, 0);

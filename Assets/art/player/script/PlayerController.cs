@@ -26,35 +26,45 @@ public class PlayerController : MonoBehaviour
         cut.performed += DoCut;
         cut.Enable();
     }
-     //these two are inverted but im too tired to change it 
+
     private void DoMoveLeft(InputAction.CallbackContext context)
     {
-        if (playerTerrainManager != null)
+        if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
-            playerTerrainManager.moveLeft();
+            if (playerTerrainManager != null)
+            {
+                playerTerrainManager.moveLeft();
+            }
         }
     }
     private void DoMoveRight(InputAction.CallbackContext context)
     {
-        if (playerTerrainManager != null)
+        if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
-            playerTerrainManager.moveRight();
+            if (playerTerrainManager != null)
+            {
+                playerTerrainManager.moveRight();
+            }
         }
+        
     }
 
     private void DoCut(InputAction.CallbackContext context)
     {
-        // Otteniamo il riferimento al tronco più in basso solo quando ne abbiamo bisogno.
-        if (treesSpawnerManager.currentLogs.Count > 0)
+        if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
-            GameObject bottomLog = treesSpawnerManager.currentLogs[0];
-            
-            // Verifichiamo subito se l'oggetto è valido.
-            if (bottomLog != null)
+            if (treesSpawnerManager.currentLogs.Count > 0)
             {
-                treesSpawnerManager.OnLogCut(bottomLog);
+                GameObject bottomLog = treesSpawnerManager.currentLogs[0];
+
+
+                if (bottomLog != null)
+                {
+                    treesSpawnerManager.OnLogCut(bottomLog);
+                }
             }
         }
+
     }
 
     void OnDisable()
@@ -62,5 +72,13 @@ public class PlayerController : MonoBehaviour
         moveRight.Disable();
         moveLeft.Disable();
         cut.Disable();
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("trunk"))
+        {
+            GameManager.Instance.endGame();
+            OnDisable();
+        }
     }
 }
