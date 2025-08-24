@@ -13,6 +13,6 @@ public class LookAtTree : MonoBehaviour
         direction = gameTree.position - transform.position;
         rotation = Quaternion.LookRotation(direction);
         eulerAngles = rotation.eulerAngles;
-        transform.rotation = Quaternion.Euler(0, eulerAngles.y-90, 0);
+        transform.rotation = Quaternion.Euler(0, eulerAngles.y, 0);
     }
 }
