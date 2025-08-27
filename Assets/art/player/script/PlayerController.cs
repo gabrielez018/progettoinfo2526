@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private InputAction moveLeft;
     private InputAction cut;
     [SerializeField] PlayerTerrainManager playerTerrainManager;
+    [SerializeField] Animator animator;
     void Awake()
     {
         playerInputSystem = new();
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void DoCut(InputAction.CallbackContext context)
     {
+        animator.SetTrigger("cut");
         if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
             if (treesSpawnerManager.currentLogs.Count > 0)
@@ -64,7 +66,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
     }
 
     void OnDisable()

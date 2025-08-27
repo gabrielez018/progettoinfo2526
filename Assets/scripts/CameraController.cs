@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+
+    [Header("tracking settings")]
     [SerializeField] GameObject lookAtObject;
 
     public float rotationSpeed = 5.0f;
@@ -14,6 +16,10 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] float minClamp = -60f;
     [SerializeField] float maxClamp = 60f;
+
+    [Header("shake settings")]
+
+    [SerializeField] float shakeDuration;
 
     void Update()
     {
