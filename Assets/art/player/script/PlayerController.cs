@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private InputAction cut;
     [SerializeField] PlayerTerrainManager playerTerrainManager;
     [SerializeField] Animator animator;
+    [SerializeField] CameraController cameraController;
     void Awake()
     {
         playerInputSystem = new();
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
     private void DoCut(InputAction.CallbackContext context)
     {
         animator.SetTrigger("cut");
+        cameraController.setShake();
         if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
             if (treesSpawnerManager.currentLogs.Count > 0)

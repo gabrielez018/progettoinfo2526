@@ -137,11 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.7184334
+      value: -4.521918
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.820457
+      value: 31.778013
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalRotation.w
@@ -210,11 +210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -32.013317
+      value: -32.977497
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.078226
+      value: 8.227293
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalRotation.w
@@ -414,17 +414,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Version: 3
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &418259319
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,15 +547,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.743988
+      value: 15.074116
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.31596
+      value: -19.69574
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.054377
+      value: 10.234163
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalRotation.w
@@ -832,11 +838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.156616
+      value: -19.65613
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.22268
+      value: 26.58499
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1049,7 +1055,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.100000024
@@ -1057,6 +1062,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!81 &1613343551
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1145,10 +1151,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAtObject: {fileID: 1226329102}
   rotationSpeed: 5
-  distanceFromTarget: 18
+  distanceFromTarget: 12
   height: 5
   minClamp: -60
   maxClamp: 60
+  shakeDuration: 0.02
+  shake: 0
 --- !u!4 &1677967078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
@@ -1226,6 +1234,7 @@ MonoBehaviour:
   treesSpawnerManager: {fileID: 323364535}
   playerTerrainManager: {fileID: 1163383611}
   animator: {fileID: 777531463}
+  cameraController: {fileID: 1613343554}
 --- !u!1001 &1917250646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1405,11 +1414,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8138094
+      value: 3.010325
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.14076
+      value: 38.098312
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1600,15 +1609,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -54.01625
+      value: -36.798626
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1991615
+      value: -12.355183
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.628971
+      value: 15.088216
       objectReference: {fileID: 0}
     - target: {fileID: 8010025172738067992, guid: b306d7f736cfdcb44a7b33bfb377b589, type: 3}
       propertyPath: m_LocalRotation.w
