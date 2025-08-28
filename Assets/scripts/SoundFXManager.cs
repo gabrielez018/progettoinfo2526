@@ -3,7 +3,8 @@ public enum SoundType
 {
     UI,
     CUT,
-    TASK
+    TASK,
+    DEATH
 }
     [RequireComponent(typeof(AudioSource))]
 public class SoundFXManager : MonoBehaviour

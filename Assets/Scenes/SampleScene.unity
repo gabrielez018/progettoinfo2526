@@ -1148,6 +1148,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 12e47dadca43e0a4a8f965781ad4a182, type: 3}
   - {fileID: 8300000, guid: 7b3efcf787690c145996117e43408eb0, type: 3}
   - {fileID: 8300000, guid: a09e25542ab446042b304a31d353fa25, type: 3}
+  - {fileID: 8300000, guid: 3222b048869ef314ea7dda76c08228d1, type: 3}
   minPitch: 0.8
   maxPitch: 1.2
 --- !u!4 &875187675
@@ -1326,7 +1327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1255751922
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1820,7 +1821,8 @@ MonoBehaviour:
   playerTerrainManager: {fileID: 1163383611}
   animator: {fileID: 777531463}
   cameraController: {fileID: 1613343554}
-  gameManager: {fileID: 0}
+  player: {fileID: 777531459}
+  deadPlayer: {fileID: 3218964425691253318, guid: 6c3d3c531661a464295278b3fefd5739, type: 3}
 --- !u!1001 &1917250646
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerTerrainManager playerTerrainManager;
     [SerializeField] Animator animator;
     [SerializeField] CameraController cameraController;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject deadPlayer;
     void Awake()
     {
         playerInputSystem = new();
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerTerrainManager != null)
             {
-                
+
                 playerTerrainManager.moveLeft();
             }
         }
@@ -47,11 +48,11 @@ public class PlayerController : MonoBehaviour
         {
             if (playerTerrainManager != null)
             {
-                
+
                 playerTerrainManager.moveRight();
             }
         }
-        
+
     }
 
     private void DoCut(InputAction.CallbackContext context)
@@ -86,6 +87,13 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.endGame();
             OnDisable();
+            switchPlayer();
+            
         }
+    }
+    private void switchPlayer()
+    {
+        Instantiate(deadPlayer,player.transform.position,player.transform.rotation);
+        Destroy(player);
     }
 }

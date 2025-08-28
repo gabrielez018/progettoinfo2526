@@ -54,8 +54,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _cullQuantity: 20.3
-    - _fogDensity: 0.05
+    - _fogDensity: 0.19
     m_Colors:
-    - _color: {r: 0.5838377, g: 0.7735849, b: 0.7544819, a: 1}
+    - _color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
