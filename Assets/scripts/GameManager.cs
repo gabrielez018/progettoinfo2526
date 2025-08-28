@@ -50,5 +50,6 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.gameOver;
     }
+    
 
 }

@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
     [Header("shake settings")]
 
     [SerializeField] float shakeDuration;
-
+    public AnimationCurve curve;
     public bool shake = false;
 
     void Update()
@@ -52,7 +52,8 @@ public class CameraController : MonoBehaviour
         while (elapsedTime < shakeDuration)
         {
             elapsedTime += Time.deltaTime;
-            transform.position = startPosition + Random.onUnitSphere;
+            float strenght = curve.Evaluate(elapsedTime / shakeDuration);
+            transform.position = startPosition + Random.onUnitSphere * strenght;
             yield return null;
         }
         transform.position = startPosition;

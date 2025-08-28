@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerTerrainManager playerTerrainManager;
     [SerializeField] Animator animator;
     [SerializeField] CameraController cameraController;
+    [SerializeField] GameManager gameManager;
     void Awake()
     {
         playerInputSystem = new();
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerTerrainManager != null)
             {
+                
                 playerTerrainManager.moveLeft();
             }
         }
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerTerrainManager != null)
             {
+                
                 playerTerrainManager.moveRight();
             }
         }
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
     private void DoCut(InputAction.CallbackContext context)
     {
         animator.SetTrigger("cut");
+        SoundFXManager.playSound(SoundType.CUT);
         cameraController.setShake();
         if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
