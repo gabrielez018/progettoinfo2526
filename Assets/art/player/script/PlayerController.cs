@@ -86,9 +86,11 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("trunk"))
         {
             GameManager.Instance.endGame();
+            SoundFXManager.playSound(SoundType.DEATH);
             OnDisable();
             switchPlayer();
-            
+            cameraController.setShakeDuration(2f);
+            cameraController.setShake();
         }
     }
     private void switchPlayer()
