@@ -1,16 +1,34 @@
 using UnityEngine;
-
+public enum MusicType
+{
+    MAINMENU,
+    PLAY
+}
+[RequireComponent(typeof(AudioSource))]
 public class MusicManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static MusicManager instance;
+    private AudioSource audiosource;
+    [SerializeField] private AudioClip[] songClips;
+
+    [SerializeField] private float minPitch;
+    [SerializeField] private float maxPitch;
+    
+    void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
         
     }
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        audiosource = GetComponent<AudioSource>();
+    }
+    public static void PlaySound(MusicType sound)
+    {
+        instance.audiosource.PlayOneShot(instance.songClips[(int)sound], 1f);
     }
 }

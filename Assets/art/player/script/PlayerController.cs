@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("cut");
         SoundFXManager.playSound(SoundType.CUT);
         cameraController.setShake();
+        GameManager.Instance.addScore();
+        
         if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
             if (treesSpawnerManager.currentLogs.Count > 0)

@@ -26,18 +26,22 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        currentX += Input.GetAxis("Mouse X") * rotationSpeed;
-        currentY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+        if (GameManager.Instance.gameState == GameManager.GameState.playing)
+        {
+            currentX += Input.GetAxis("Mouse X") * rotationSpeed;
+            currentY -= Input.GetAxis("Mouse Y") * rotationSpeed;
 
-        currentY = Mathf.Clamp(currentY, minClamp, maxClamp);
+            currentY = Mathf.Clamp(currentY, minClamp, maxClamp);
 
-        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+            Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
 
-        Vector3 newCameraPosition = rotation * new Vector3(0.0f, height, -distanceFromTarget) + lookAtObject.transform.position;
+            Vector3 newCameraPosition = rotation * new Vector3(0.0f, height, -distanceFromTarget) + lookAtObject.transform.position;
 
-        // Imposta la posizione e la rotazione della telecamera
-        transform.position = newCameraPosition;
-        transform.LookAt(lookAtObject.transform);
+            // Imposta la posizione e la rotazione della telecamera
+            transform.position = newCameraPosition;
+            transform.LookAt(lookAtObject.transform);
+        }
+        
         if (shake)
         {
             shake = false;

@@ -4,9 +4,10 @@ public enum SoundType
     UI,
     CUT,
     TASK,
-    DEATH
+    DEATH,
+    GAMEOVER
 }
-    [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource))]
 public class SoundFXManager : MonoBehaviour
 {
     public static SoundFXManager instance;

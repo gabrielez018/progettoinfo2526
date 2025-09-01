@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     public void startGame()
     {
         gameState = GameState.playing;
+        MusicManager.PlaySound(MusicType.PLAY);
     }
     public void pauseGame()
     {
