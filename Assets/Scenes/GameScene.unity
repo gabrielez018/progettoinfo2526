@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimeBarManager
   timeBarFill: {fileID: 2146083173}
   maxTime: 20
-  decreaseRate: 0.5
+  decreaseRate: 0.1
   increasePerLog: 0.2
   playerController: {fileID: 1872097313}
 --- !u!4 &1677581271
