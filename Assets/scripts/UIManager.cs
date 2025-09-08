@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] String gameSceneName;
     [SerializeField] String menuSceneName;
-    [SerializeField] GameObject settingsPanel;
+    //[SerializeField] GameObject settingsPanel;
     public static UIManager instance;
     void Awake()
     {
@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-        settingsPanel.SetActive(false);
+        //settingsPanel.SetActive(false);
     }
     public void LoadGameScene()
     {
@@ -37,11 +37,11 @@ public class UIManager : MonoBehaviour
     }
     public void OpenSettingsPanel()
     {
-        settingsPanel.SetActive(true);
+        //settingsPanel.SetActive(true);
     }
     public void CloseSettingsPanel()
     {
-        settingsPanel.SetActive(false);
+        //settingsPanel.SetActive(false);
     }
     
     

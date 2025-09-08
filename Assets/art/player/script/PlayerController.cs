@@ -14,9 +14,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CameraController cameraController;
     [SerializeField] GameObject player;
     [SerializeField] GameObject deadPlayer;
+    [SerializeField] private TimeBarManager timeBarManager;
+    private bool started;
+
     void Awake()
     {
         playerInputSystem = new();
+    }
+    void Start()
+    {
+        started = false;
+        timeBarManager.ResetBar();
     }
     void OnEnable()
     {
@@ -61,7 +69,9 @@ public class PlayerController : MonoBehaviour
         SoundFXManager.playSound(SoundType.CUT);
         cameraController.setShake();
         GameManager.Instance.addScore();
-        
+        timeBarManager.OnLogCut();
+        started = true;
+
         if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
             if (treesSpawnerManager.currentLogs.Count > 0)
@@ -87,17 +97,28 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("trunk"))
         {
-            GameManager.Instance.endGame();
-            SoundFXManager.playSound(SoundType.DEATH);
-            OnDisable();
-            switchPlayer();
-            cameraController.setShakeDuration(2f);
-            cameraController.setShake();
+            playerDeath();
         }
     }
     private void switchPlayer()
     {
-        Instantiate(deadPlayer,player.transform.position,player.transform.rotation);
+        Instantiate(deadPlayer, player.transform.position, player.transform.rotation);
         Destroy(player);
+    }
+    public void playerDeath()
+    {
+        GameManager.Instance.endGame();
+        SoundFXManager.playSound(SoundType.DEATH);
+        OnDisable();
+        switchPlayer();
+        cameraController.setShakeDuration(2f);
+        cameraController.setShake();
+    }
+    void Update()
+    {
+        if (!started)
+        {
+            timeBarManager.ResetBar();
+        }
     }
 }
