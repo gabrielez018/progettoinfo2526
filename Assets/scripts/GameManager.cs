@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
     public void startGame()
     {
         gameState = GameState.playing;
-        MusicManager.PlaySound(MusicType.PLAY);
     }
     public void pauseGame()
     {

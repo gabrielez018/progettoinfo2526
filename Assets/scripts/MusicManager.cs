@@ -26,9 +26,11 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
+        PlaySound(MusicType.MAINMENU);
     }
     public static void PlaySound(MusicType sound)
     {
-        instance.audiosource.PlayOneShot(instance.songClips[(int)sound], 1f);
+        instance.audiosource.clip = instance.songClips[(int)sound];
+        instance.audiosource.Play();
     }
 }
