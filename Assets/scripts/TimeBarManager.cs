@@ -4,14 +4,16 @@ using UnityEngine.UI;
 public class TimeBarManager : MonoBehaviour
 {
     [Header("Bar Settings")]
-    public Image timeBarFill; // UI Image con tipo "Filled"
+    public Image timeBarFill;
     public float maxTime = 5f;
     private float currentTime;
 
     [Header("Difficulty")]
     public float decreaseRate = 1f;
-    public float increasePerLog = 0.2f; 
+    public float increasePerLog = 0.2f;
     private bool isRunning = true;
+    [SerializeField] private float maxDecreaseRate;
+    [SerializeField] private float cuttingAdditionTime = 0f;
     [SerializeField] PlayerController playerController;
     private void Start()
     {
@@ -22,7 +24,7 @@ public class TimeBarManager : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
-           if (!isRunning) return;
+            if (!isRunning) return;
 
             currentTime -= Time.deltaTime * decreaseRate;
 
@@ -33,9 +35,9 @@ public class TimeBarManager : MonoBehaviour
                 isRunning = false;
             }
 
-            UpdateBarUI(); 
+            UpdateBarUI();
         }
-        
+
     }
 
     private void UpdateBarUI()
@@ -48,11 +50,12 @@ public class TimeBarManager : MonoBehaviour
 
     public void OnLogCut()
     {
-        
-        currentTime = Mathf.Min(currentTime + 1f, maxTime);
+        currentTime = Mathf.Min(currentTime + cuttingAdditionTime, maxTime);
 
-        
-        decreaseRate += increasePerLog;
+        if (decreaseRate < maxDecreaseRate)
+        {
+            decreaseRate += increasePerLog;
+        }
     }
 
     public void ResetBar()

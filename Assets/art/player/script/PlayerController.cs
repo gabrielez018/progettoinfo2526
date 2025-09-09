@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         started = false;
         timeBarManager.ResetBar();
+        GameManager.Instance.UpdateScoreUi();
     }
     void OnEnable()
     {
@@ -68,7 +69,8 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("cut");
         SoundFXManager.playSound(SoundType.CUT);
         cameraController.setShake();
-        GameManager.Instance.addScore();
+        GameManager.Instance.AddScore();
+        GameManager.Instance.UpdateScoreUi();
         timeBarManager.OnLogCut();
         started = true;
 
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour
     }
     public void playerDeath()
     {
-        GameManager.Instance.endGame();
+        GameManager.Instance.EndGame();
         SoundFXManager.playSound(SoundType.DEATH);
         OnDisable();
         switchPlayer();

@@ -48,7 +48,7 @@ public class TreesSpawnerManager : MonoBehaviour
         {
             currentLogs.Remove(cuttedLog);
         }
-        GameManager.Instance.addScore();
+        GameManager.Instance.AddScore();
         foreach (GameObject log in currentLogs)
         {
             log.transform.position -= Vector3.up * logHeight;

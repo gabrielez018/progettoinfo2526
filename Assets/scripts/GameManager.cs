@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,10 +8,12 @@ public class GameManager : MonoBehaviour
     {
         playing,
         paused,
-        gameOver
+        gameOver,
+        mianMenu
     }
     private int score;
     public GameState gameState;
+    private TMP_Text scoreText;
 
     void Awake()
     {
@@ -23,33 +26,45 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         score = 0;
-        startGame();
+        StartGame();
     }
-    public void addScore()
+    public void AddScore()
     {
         score++;
     }
-    public int setScore()
+    public int GetScore()
     {
         return score;
     }
-    public void startGame()
+    public void StartGame()
     {
         gameState = GameState.playing;
+        score = 0;
     }
-    public void pauseGame()
+    public void PauseGame()
     {
         gameState = GameState.paused;
     }
-    public void endGame()
+    public void EndGame()
     {
         gameState = GameState.gameOver;
+    }
+    public void RegisterText(TMP_Text text)
+    {
+        scoreText = text;
+    }
+    public void UpdateScoreUi()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = GetScore().ToString();
+        }
     }
     
 
