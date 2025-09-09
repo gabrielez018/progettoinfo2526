@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
         playing,
         paused,
         gameOver,
-        mianMenu
+        mainMenu
     }
     private int score;
     public GameState gameState;
@@ -55,9 +55,19 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.gameOver;
     }
+    public void SetMenu()
+    {
+        gameState = GameState.mainMenu;
+        UnregisterText();
+        
+    }
     public void RegisterText(TMP_Text text)
     {
         scoreText = text;
+    }
+    public void UnregisterText()
+    {
+        scoreText = null;
     }
     public void UpdateScoreUi()
     {
