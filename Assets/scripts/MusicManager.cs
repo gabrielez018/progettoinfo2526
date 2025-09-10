@@ -7,7 +7,7 @@ public enum MusicType
 [RequireComponent(typeof(AudioSource))]
 public class MusicManager : MonoBehaviour
 {
-    public static MusicManager instance;
+    public static MusicManager Instance { get; private set; }
     private AudioSource audiosource;
     [SerializeField] private AudioClip[] songClips;
 
@@ -16,10 +16,14 @@ public class MusicManager : MonoBehaviour
     
     void Awake()
     {
-        if (instance == null)
+        if (Instance != null && Instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(this);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         
     }
@@ -28,9 +32,9 @@ public class MusicManager : MonoBehaviour
         audiosource = GetComponent<AudioSource>();
         PlaySound(MusicType.MAINMENU);
     }
-    public static void PlaySound(MusicType sound)
+    public void PlaySound(MusicType sound)
     {
-        instance.audiosource.clip = instance.songClips[(int)sound];
-        instance.audiosource.Play();
+        Instance.audiosource.clip = Instance.songClips[(int)sound];
+        Instance.audiosource.Play();
     }
 }

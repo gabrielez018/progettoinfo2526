@@ -24,14 +24,14 @@ public class UIManager : MonoBehaviour
     public void LoadGameScene()
     {
         SceneManager.LoadScene(gameSceneName);
-        SoundFXManager.playSound(SoundType.UI);
-        MusicManager.PlaySound(MusicType.PLAY);
+        SoundFXManager.Instance.PlaySound(SoundType.UI);
+        MusicManager.Instance.PlaySound(MusicType.PLAY);
     }
     public void LoadMenuScene()
     {
         SceneManager.LoadScene(menuSceneName);
-        SoundFXManager.playSound(SoundType.UI);
-        MusicManager.PlaySound(MusicType.MAINMENU);
+        SoundFXManager.Instance.PlaySound(SoundType.UI);
+        MusicManager.Instance.PlaySound(MusicType.MAINMENU);
     }
     public void OpenSettingsPanel()
     {

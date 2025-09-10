@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     private void DoCut(InputAction.CallbackContext context)
     {
         animator.SetTrigger("cut");
-        SoundFXManager.playSound(SoundType.CUT);
+        SoundFXManager.Instance.PlaySound(SoundType.CUT);
         cameraController.setShake();
         GameManager.Instance.AddScore();
         GameManager.Instance.UpdateScoreUi();
@@ -99,20 +99,20 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("trunk"))
         {
-            playerDeath();
+            PlayerDeath();
         }
     }
-    private void switchPlayer()
+    private void SwitchPlayer()
     {
         Instantiate(deadPlayer, player.transform.position, player.transform.rotation);
         Destroy(player);
     }
-    public void playerDeath()
+    public void PlayerDeath()
     {
         GameManager.Instance.EndGame();
-        SoundFXManager.playSound(SoundType.DEATH);
+        SoundFXManager.Instance.PlaySound(SoundType.DEATH);
         OnDisable();
-        switchPlayer();
+        SwitchPlayer();
         cameraController.setShakeDuration(2f);
         cameraController.setShake();
     }

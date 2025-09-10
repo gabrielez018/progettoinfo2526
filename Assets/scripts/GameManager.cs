@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.playing;
         score = 0;
+        MusicManager.Instance.PlaySound(MusicType.PLAY);
     }
     public void PauseGame()
     {
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.mainMenu;
         UnregisterText();
-        
+
     }
     public void RegisterText(TMP_Text text)
     {

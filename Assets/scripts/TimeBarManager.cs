@@ -31,7 +31,7 @@ public class TimeBarManager : MonoBehaviour
             if (currentTime <= 0)
             {
                 currentTime = 0;
-                playerController.playerDeath();
+                playerController.PlayerDeath();
                 isRunning = false;
             }
 

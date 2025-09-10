@@ -10,7 +10,7 @@ public enum SoundType
 [RequireComponent(typeof(AudioSource))]
 public class SoundFXManager : MonoBehaviour
 {
-    public static SoundFXManager instance;
+    public static SoundFXManager Instance{ get; private set; }
     private AudioSource audiosource;
     [SerializeField] private AudioClip[] soundClips;
 
@@ -19,20 +19,24 @@ public class SoundFXManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+        if (Instance != null && Instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(this);
+            Destroy(this.gameObject);
         }
-        
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+
     }
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
     }
-    public static void playSound(SoundType sound)
+    public void PlaySound(SoundType sound)
     {
-        instance.audiosource.pitch = Random.Range(instance.minPitch,instance.maxPitch);
-        instance.audiosource.PlayOneShot(instance.soundClips[(int)sound], 1f);
+        Instance.audiosource.pitch = Random.Range(Instance.minPitch,Instance.maxPitch);
+        Instance.audiosource.PlayOneShot(Instance.soundClips[(int)sound], 1f);
     }
 }
