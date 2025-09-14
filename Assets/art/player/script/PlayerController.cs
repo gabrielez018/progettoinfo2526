@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private TreesSpawnerManager treesSpawnerManager;
-    private PlayerInputSystem playerInputSystem;
     private InputAction moveRight;
     private InputAction moveLeft;
     private InputAction cut;
@@ -17,10 +16,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TimeBarManager timeBarManager;
     private bool started;
 
-    void Awake()
-    {
-        playerInputSystem = new();
-    }
     void Start()
     {
         started = false;
@@ -29,13 +24,13 @@ public class PlayerController : MonoBehaviour
     }
     void OnEnable()
     {
-        moveRight = playerInputSystem.Player.moveRight;
+        moveRight = GameManager.Instance.playerInputSystem.Player.moveRight;
         moveRight.performed += DoMoveRight;
         moveRight.Enable();
-        moveLeft = playerInputSystem.Player.moveLeft;
+        moveLeft = GameManager.Instance.playerInputSystem.Player.moveLeft;
         moveLeft.performed += DoMoveLeft;
         moveLeft.Enable();
-        cut = playerInputSystem.Player.cut;
+        cut = GameManager.Instance.playerInputSystem.Player.cut;
         cut.performed += DoCut;
         cut.Enable();
     }
@@ -66,16 +61,17 @@ public class PlayerController : MonoBehaviour
 
     private void DoCut(InputAction.CallbackContext context)
     {
-        animator.SetTrigger("cut");
-        SoundFXManager.Instance.PlaySound(SoundType.CUT);
-        cameraController.setShake();
-        GameManager.Instance.AddScore();
-        GameManager.Instance.UpdateScoreUi();
-        timeBarManager.OnLogCut();
-        started = true;
-
         if (GameManager.Instance.gameState == GameManager.GameState.playing)
         {
+            animator.SetTrigger("cut");
+            SoundFXManager.Instance.PlaySound(SoundType.CUT);
+            cameraController.SetShake();
+            GameManager.Instance.AddScore();
+            GameManager.Instance.UpdateScoreUi();
+            timeBarManager.OnLogCut();
+            started = true;
+
+            
             if (treesSpawnerManager.currentLogs.Count > 0)
             {
                 GameObject bottomLog = treesSpawnerManager.currentLogs[0];
@@ -87,6 +83,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        
+        
     }
 
     void OnDisable()
@@ -111,10 +109,9 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.EndGame();
         SoundFXManager.Instance.PlaySound(SoundType.DEATH);
-        OnDisable();
         SwitchPlayer();
-        cameraController.setShakeDuration(2f);
-        cameraController.setShake();
+        cameraController.SetShakeDuration(2f);
+        cameraController.SetShake();
     }
     void Update()
     {
@@ -123,4 +120,5 @@ public class PlayerController : MonoBehaviour
             timeBarManager.ResetBar();
         }
     }
+    
 }

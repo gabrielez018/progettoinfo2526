@@ -45,11 +45,11 @@ public class CameraController : MonoBehaviour
         if (shake)
         {
             shake = false;
-            StartCoroutine(shaking());
+            StartCoroutine(Shaking());
         }
     }
 
-    IEnumerator shaking()
+    IEnumerator Shaking()
     {
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;
@@ -63,11 +63,11 @@ public class CameraController : MonoBehaviour
         transform.position = startPosition;
     }
 
-    public void setShake()
+    public void SetShake()
     {
         shake = true;
     }
-    public void setShakeDuration(float duration)
+    public void SetShakeDuration(float duration)
     {
         this.shakeDuration = duration;
     }

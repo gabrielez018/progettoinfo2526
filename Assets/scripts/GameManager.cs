@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private int score;
     public GameState gameState;
     private TMP_Text scoreText;
-
+    public PlayerInputSystem playerInputSystem { get; private set; }
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        playerInputSystem = new PlayerInputSystem();
+        playerInputSystem.Enable();
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

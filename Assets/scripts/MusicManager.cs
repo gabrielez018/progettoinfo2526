@@ -13,7 +13,7 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] private float minPitch;
     [SerializeField] private float maxPitch;
-    
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -25,11 +25,11 @@ public class MusicManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        
+        audiosource = GetComponent<AudioSource>();
     }
     void Start()
     {
-        audiosource = GetComponent<AudioSource>();
+
         PlaySound(MusicType.MAINMENU);
     }
     public void PlaySound(MusicType sound)
@@ -37,4 +37,5 @@ public class MusicManager : MonoBehaviour
         Instance.audiosource.clip = Instance.songClips[(int)sound];
         Instance.audiosource.Play();
     }
+    
 }

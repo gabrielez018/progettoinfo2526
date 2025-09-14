@@ -586,10 +586,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundMusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4814522359692208695, guid: 70362fbc83a38224781535fe14c36dbf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8521012580097842086, guid: 70362fbc83a38224781535fe14c36dbf, type: 3}
       propertyPath: 'songClips.Array.data[0]'
       value: 
       objectReference: {fileID: 8300000, guid: 3b0a7de29a8c62a47ae4f48b33d3541e, type: 3}
+    - target: {fileID: 8521012580097842086, guid: 70362fbc83a38224781535fe14c36dbf, type: 3}
+      propertyPath: 'songClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 18b4d52c57b45704599bc73d1f767c10, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1036,6 +1044,10 @@ PrefabInstance:
     - target: {fileID: 853139038165728482, guid: 2262d786d7d8b324c9a3e5930511ba24, type: 3}
       propertyPath: m_Name
       value: SoundFXManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 853139038165728482, guid: 2262d786d7d8b324c9a3e5930511ba24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1350021364946293509, guid: 2262d786d7d8b324c9a3e5930511ba24, type: 3}
       propertyPath: MaxDistance
@@ -1492,6 +1504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3891222172085864596, guid: 7a8257e265f58c24490e99a7077e233a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1508,6 +1524,14 @@ PrefabInstance:
     - target: {fileID: 2544676192632657874, guid: 4f431f511f2e8ce4faa0b710ada086ed, type: 3}
       propertyPath: settingsPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544676192632657874, guid: 4f431f511f2e8ce4faa0b710ada086ed, type: 3}
+      propertyPath: slideDuration
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544676192632657874, guid: 4f431f511f2e8ce4faa0b710ada086ed, type: 3}
+      propertyPath: slideYVelocity
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 7138344874270678196, guid: 4f431f511f2e8ce4faa0b710ada086ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1552,6 +1576,10 @@ PrefabInstance:
     - target: {fileID: 8911913353403070619, guid: 4f431f511f2e8ce4faa0b710ada086ed, type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911913353403070619, guid: 4f431f511f2e8ce4faa0b710ada086ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
